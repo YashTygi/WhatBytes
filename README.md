@@ -2,7 +2,12 @@
 
 A modern, responsive dashboard built with Next.js for visualizing skill assessment data and analytics.
 
-![Dashboard Preview](/path-to-your-dashboard-screenshot.png)
+![Dashboard Preview](/preview.png)
+![Dashboard Modal Preview](/preview_modal.png)
+
+## 🔗 Links
+- [Figma Design](https://www.figma.com/design/mCAJXhhWGJZH0hrbtuq2eL/WhatBytes?node-id=0-1&t=RoZjANnWs7Ewdxf1-1)
+- [Live Demo](https://whatbytes-yash.netlify.app/)
 
 ## 🚀 Features
 
@@ -38,6 +43,8 @@ graph TD
 ```
 
 ## 💻 Technical Implementation
+
+![Data Flow](/dataflow.png)
 
 ### Data Flow
 1. Client requests dashboard data
@@ -83,33 +90,10 @@ graph TD
 
 ## 🔧 Technical Improvements
 
-### Current Implementation
-```typescript
-// Example of current caching implementation
-export async function getData() {
-  const cached = await cache.get('dashboard-data');
-  if (cached) return cached;
-  
-  const data = await fetchFromMongoDB();
-  await cache.set('dashboard-data', data);
-  return data;
-}
-```
-
 ### Future Optimizations
 - Implement stale-while-revalidate pattern
+- Optimistic UI
 - Add error boundary components
 - Optimize bundle size
 - Implement progressive loading
 - Add end-to-end testing
-
-## 🔗 Links
-- [Figma Design](your-figma-link)
-- [Live Demo](your-demo-link)
-- [API Documentation](your-api-docs-link)
-
-## 📝 Additional Notes
-
-The dashboard was built as part of the WhatBytes internship program, focusing on creating a modern, performant analytics interface. The project demonstrates proficiency in Next.js, state management, API integration, and modern web development practices.
-
-For developers looking to contribute or maintain this project, please ensure to follow the established coding patterns and maintain the design system consistency.
