@@ -44,7 +44,7 @@ graph TD
 
 ## 💻 Technical Implementation
 
-![Data Flow](/dataflow.png)
+![Data Flow](/public/dataflow.png)
 
 ### Data Flow
 1. Client requests dashboard data
