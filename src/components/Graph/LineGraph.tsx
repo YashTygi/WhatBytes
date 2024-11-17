@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import React from 'react';
 import {
     LineChart,
@@ -10,17 +10,11 @@ import {
     TooltipProps
 } from 'recharts';
 
-// interface PercentileProps {
-//     userPercentile?: number | string
-// }
+interface PercentileProps {
+    userPercentile: number;
+}
 
-// interface CustomTooltipProps extends TooltipProps<number, string> {
-//     active: boolean;
-//     payload: Array<{ value: number }>;
-//     label: string;
-// }
-
-export default function PercentileChart() {
+const PercentileChart: React.FC<PercentileProps> = ({ userPercentile }) => {
     const data = [
         { percentile: 0, numOfStudents: 10 },
         { percentile: 10, numOfStudents: 15 },
@@ -46,7 +40,7 @@ export default function PercentileChart() {
                 <div className="bg-white p-4 border border-gray-200 shadow-lg rounded">
                     <p className="text-gray-700">Percentile: {label}</p>
                     <p className="text-indigo-600">Number of Students: {payload[0].value}</p>
-                    {label === '75' && (
+                    {parseFloat(label) === userPercentile && (
                         <p className="text-green-600 font-semibold">Your Score!</p>
                     )}
                 </div>
@@ -85,7 +79,7 @@ export default function PercentileChart() {
                     />
 
                     <ReferenceLine
-                        x={75}
+                        x={userPercentile}
                         stroke="#8884d8"
                         strokeDasharray="3 3"
                         label={{
@@ -98,7 +92,8 @@ export default function PercentileChart() {
                     <Tooltip content={<CustomTooltip />} />
                 </LineChart>
             </ResponsiveContainer>
-            
         </div>
     );
-}
+};
+
+export default PercentileChart;

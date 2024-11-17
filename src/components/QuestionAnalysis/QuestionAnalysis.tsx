@@ -39,11 +39,11 @@ const QuestionAnalysis = () => {
         const percentage = (correct / total) * 100;
 
         if (percentage >= 80) {
-            return `Excellent! You answered ${correct} questions correctly out of ${total}. Keep up the great work!`;
+            return ` Keep up the great work!`;
         } else if (percentage >= 50) {
-            return `Good job! You scored ${correct} correct answers out of ${total}. You're on the right track!`;
+            return `You're on the right track!`;
         } else {
-            return `You scored ${correct} correct answers out of ${total}. Keep practicing to improve your performance.`;
+            return ` Keep practicing to improve your performance.`;
         }
     };
 
@@ -78,6 +78,7 @@ const QuestionAnalysis = () => {
                         <p className="text-lg font-bold text-blue-600">{`${stats.correct} / ${stats.total}`}</p>
                     </div>
                     <p className="w-[80%] text-base text-gray-500">
+                        <span className="font-semibold">You answered {correctAnswers} answers correctly out of {totalQuestions}.</span>
                         {getMessage(correctAnswers, totalQuestions)}
                     </p>
                 </div>

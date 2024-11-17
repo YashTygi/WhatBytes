@@ -5,8 +5,6 @@ import PercentileChart from '../Graph/LineGraph';
 import Container from '../elements/Container';
 import { getUserData } from '@/actions/getUserData';
 
-
-
 interface StatsData {
     percentile: string;
 }
@@ -32,11 +30,11 @@ const ComparisonGraph = () => {
     const getMessage = (percentile: number) => {
         const averagePercentile = 72;
         if (percentile > averagePercentile) {
-            return `You scored ${percentile}% percentile, which is higher than the average percentile of ${averagePercentile}% of all the engineers who took this assessment. Great job!`;
+            return `which is higher than the average percentile of ${averagePercentile}% of all the engineers who took this assessment. Great job!`;
         } else if (percentile < averagePercentile) {
-            return `You scored ${percentile}% percentile, which is lower than the average percentile of ${averagePercentile}% of all the engineers who took this assessment. Keep improving!`;
+            return `which is lower than the average percentile of ${averagePercentile}% of all the engineers who took this assessment. Keep improving!`;
         } else {
-            return `You scored ${percentile}% percentile, which is equal to the average percentile of ${averagePercentile}% of all the engineers who took this assessment.`;
+            return `which is equal to the average percentile of ${averagePercentile}% of all the engineers who took this assessment.`;
         }
     };
 
@@ -67,6 +65,7 @@ const ComparisonGraph = () => {
                 <div className="flex flex-col gap-4">
                     <p className="text-xl font-bold">Comparison Graph</p>
                     <p className="text-base text-gray-500">
+                        <span className="font-semibold mr-1">You scored {userPercentile}% percentile,</span>
                         {getMessage(userPercentile)}
                     </p>
                 </div>
@@ -74,7 +73,7 @@ const ComparisonGraph = () => {
                     📈
                 </div>
             </div>
-            <PercentileChart />
+            <PercentileChart userPercentile={userPercentile} />
         </Container>
     );
 };
