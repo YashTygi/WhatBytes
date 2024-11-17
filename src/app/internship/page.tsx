@@ -1,11 +1,5 @@
-import { FC } from 'react'
-
-interface pageProps {
-  
-}
-
-const page: FC<pageProps> = ({}) => {
-  return <div>Internship page</div>
+const page = ({}) => {
+  return <div className="p-4 md:p-6 lg:p-8 text-base md:text-sm lg:text-base font-semibold text-slate-500 mb-8">Internship</div>
 }
 
 export default page

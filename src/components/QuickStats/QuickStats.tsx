@@ -48,10 +48,11 @@ const QuickStats: FC = () => {
                 currentScore: newStats.currentScore.toString()
             }));
         };
-
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         window.addEventListener('statsUpdated' as any, handleStatsUpdate);
         
         return () => {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             window.removeEventListener('statsUpdated' as any, handleStatsUpdate);
         };
     }, []);

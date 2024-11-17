@@ -1,4 +1,4 @@
-import { FC, InputHTMLAttributes, useState } from 'react';
+import { FC, InputHTMLAttributes } from 'react';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     label?: string;

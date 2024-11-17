@@ -1,17 +1,17 @@
 'use client';
 
-import { FC, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import PercentileChart from '../Graph/LineGraph';
 import Container from '../elements/Container';
 import { getUserData } from '@/actions/getUserData';
 
-interface ComparisonGraphProps {}
+
 
 interface StatsData {
     percentile: string;
 }
 
-const ComparisonGraph: FC<ComparisonGraphProps> = () => {
+const ComparisonGraph = () => {
     const [stats, setStats] = useState<StatsData>({
         percentile: '0',
     });
@@ -50,10 +50,11 @@ const ComparisonGraph: FC<ComparisonGraphProps> = () => {
                 percentile: newStats.percentile,
             }));
         };
-
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         window.addEventListener('statsUpdated' as any, handleStatsUpdate);
 
         return () => {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             window.removeEventListener('statsUpdated' as any, handleStatsUpdate);
         };
     }, []);
@@ -73,7 +74,7 @@ const ComparisonGraph: FC<ComparisonGraphProps> = () => {
                     📈
                 </div>
             </div>
-            <PercentileChart userPercentile={stats.percentile} />
+            <PercentileChart />
         </Container>
     );
 };

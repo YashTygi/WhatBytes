@@ -1,5 +1,5 @@
 'use client'
-import { FC, useState } from 'react'
+import { useState } from 'react'
 import Button from '../elements/Button'
 import HTML from '@/assets/HTML'
 import Container from '../elements/Container'
@@ -7,9 +7,7 @@ import Modal from '../elements/Modal'
 import Form from '../Form/form'
 
 
-interface SkillSubjectProps {}
-
-const SkillSubject: FC<SkillSubjectProps> = ({ }) => {
+const SkillSubject = ({ }) => {
     const [isOpen, setIsOpen] = useState(false)
 
     return (

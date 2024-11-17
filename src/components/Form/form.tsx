@@ -1,5 +1,5 @@
 import { FC, useState } from 'react';
-import axios from 'axios';
+import axios, { isAxiosError } from 'axios';
 import Input from '../elements/Input';
 import { revalidateUserData } from '@/actions/getUserData';
 
@@ -105,11 +105,13 @@ const Form: FC<FormProps> = ({ModalClose}) => {
                 setFormData({ rank: '', percentile: '', currentScore: '' });
                 
                 ModalClose();
-            } catch (error: any) {
+            } catch (error: unknown) {
+                if (isAxiosError(error)) {
                 setStatus({
                     loading: false,
                     error: error.response?.data?.message || 'Error updating user data'
                 });
+            }
             }
         }
     };

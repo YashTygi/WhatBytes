@@ -6,20 +6,21 @@ import {
     XAxis,
     ReferenceLine,
     Tooltip,
-    ResponsiveContainer
+    ResponsiveContainer,
+    TooltipProps
 } from 'recharts';
 
-interface PercentileProps {
-    userPercentile: number | string
-}
+// interface PercentileProps {
+//     userPercentile?: number | string
+// }
 
-interface CustomTooltipProps {
-    active: boolean;
-    payload: { value: number }[];
-    label: string;
-}
+// interface CustomTooltipProps extends TooltipProps<number, string> {
+//     active: boolean;
+//     payload: Array<{ value: number }>;
+//     label: string;
+// }
 
-export default function PercentileChart({ userPercentile }: PercentileProps) {
+export default function PercentileChart() {
     const data = [
         { percentile: 0, numOfStudents: 10 },
         { percentile: 10, numOfStudents: 15 },
@@ -39,7 +40,7 @@ export default function PercentileChart({ userPercentile }: PercentileProps) {
         { percentile: 100, numOfStudents: 10 }
     ];
 
-    const CustomTooltip: React.FC<CustomTooltipProps> = ({ active = false, payload, label }) => {
+    const CustomTooltip: React.FC<TooltipProps<number, string>> = ({ active, payload, label }) => {
         if (active && payload && payload.length) {
             return (
                 <div className="bg-white p-4 border border-gray-200 shadow-lg rounded">

@@ -1,14 +1,11 @@
 import Image from 'next/image'
-import { FC } from 'react'
 import Logo from '../../assets/Logo.png'
 import Avatar from '../../assets/Avatar.png'
-import Divider from '../elements/Divider'
 import { getUserData } from '@/actions/getUserData'
 
-interface NavProps { }
 
 
-const Nav: FC<NavProps> = async () => {
+const Nav = async () => {
 
     const userData = await getUserData();
     const username = userData?.user?.username || 'User';

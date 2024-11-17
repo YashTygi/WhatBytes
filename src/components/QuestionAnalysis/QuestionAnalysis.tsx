@@ -1,18 +1,17 @@
 'use client';
 
-import { FC, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Container from '../elements/Container';
 import ProgressChart from '../Graph/PieChart';
 import { getUserData } from '@/actions/getUserData';
 
-interface QuestionAnalysisProps {}
 
 interface AnalysisData {
     total: string;
     correct: string;
 }
 
-const QuestionAnalysis: FC<QuestionAnalysisProps> = () => {
+const QuestionAnalysis = () => {
     const [stats, setStats] = useState<AnalysisData>({
         total: '15',
         correct: '0',
@@ -58,10 +57,11 @@ const QuestionAnalysis: FC<QuestionAnalysisProps> = () => {
                 correct: newStats.currentScore,
             }));
         };
-
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         window.addEventListener('statsUpdated' as any, handleStatsUpdate);
 
         return () => {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             window.removeEventListener('statsUpdated' as any, handleStatsUpdate);
         };
     }, []);

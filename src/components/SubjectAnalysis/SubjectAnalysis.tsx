@@ -1,4 +1,3 @@
-import { FC } from 'react';
 import Container from '../elements/Container';
 import ProgessBar from '../elements/ProgessBar';
 import { getUserData } from '@/actions/getUserData';
@@ -33,9 +32,8 @@ const subjectColorMap = {
   }
 } as const;
 
-interface SubjectAnalysisProps {}
 
-const SubjectAnalysis: FC<SubjectAnalysisProps> = async () => {
+const SubjectAnalysis = async () => {
   const userData = await getUserData();
   const subjects = (userData?.user?.skill?.properties?.subjects || []) as Subject[];
 
