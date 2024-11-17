@@ -2,8 +2,8 @@
 
 A modern, responsive dashboard built with Next.js for visualizing skill assessment data and analytics.
 
-![Dashboard Preview](/preview.png)
-![Dashboard Modal Preview](/preview_modal.png)
+![Dashboard Preview](/public/preview.png)
+![Dashboard Modal Preview](/public/preview_modal.png)
 
 ## 🔗 Links
 - [Figma Design](https://www.figma.com/design/mCAJXhhWGJZH0hrbtuq2eL/WhatBytes?node-id=0-1&t=RoZjANnWs7Ewdxf1-1)
